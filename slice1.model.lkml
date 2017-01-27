@@ -378,6 +378,12 @@ explore: shop_master {
     sql_on: ${shop_master.chain_id} = ${chains.id} ;;
     relationship: many_to_one
   }
+  join: orders {
+    type: left_outer
+    sql_on: ${shop_master.shop_id} = ${orders.shop_id} ;;
+    relationship: many_to_one
+  }
+
 }
 
 explore: single_platform_visits {
